@@ -32,6 +32,14 @@ def dog_image_gallery():
   # this return will handle the HTML template when no dropmenu selection has been made
   return render_template("dogs.html", images=[], breed="", errors=errors)
 
+  @app.route("/random", methods=["POST"])
+  def get_random():
+    response = requests.get("https://dog.ceo/api/breeds/image/random")
+    data = response.json()
+  # the message key is from JSON data 
+    dog_images = [data["messages"]]
+  return render_template("dogs.html", images=dog_images)
+
 app.debug = True
 # Run the flask server
 app.run(host='0.0.0.0', port=8080)

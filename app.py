@@ -26,10 +26,11 @@ def dog_image_gallery():
     response = requests.get("https://www.dog.ceo/api/breed/" + check_breed(breed) + "/images/random/30")
     data = response.json()
     dog_images = data["message"]
-  return render_template("dogs.html")
+# images holds the dictionary data, breed holds the dog breed name from POST request, and then the errors list
+    return render_template("dogs.html", images=dog_images, breed=prettify_dog_breed(breed), errors=[])
+# the empty list and blank string will handle the HTML template when no selection has been made, errors will display the error message
+  return render_template("dogs.html", images=[], breed="", errors=errors)
 
 app.debug = True
-
-# Run the flask server
-if __name__ == "__main__":
-    app.run()
+# Run the Flask server
+app.run(host= "0.0.0.0", port=8080)

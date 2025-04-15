@@ -164,6 +164,12 @@
       <button type="submit" form="dogform" value="Submit">Submit</button>
     </form>
   </div>
+  <p>OR</p>
+  <div class="selectors">
+    <form action="/random" method="POST" id="randomdogform">
+      <button type="submit" form="randomdogform" value="Submit">Random Image</button>
+    </form>
+  </div>
   <div class="content">
     <h3>{{breed}}</h3>
     { % for image in images % }

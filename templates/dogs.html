@@ -1,5 +1,4 @@
 <html>
-
 <head>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='dogs.css') }}">
   <link href="https://fonts.googleapis.com/css?family=Rozha+One&display=swap" rel="stylesheet">
@@ -16,8 +15,13 @@
   <div class="content">
     <!-- Add image here -->
      <div class="content">
-      <img class="dogimage" src="https://images.dog.ceo/breeds/corgi-cardigan/n02113186_2431.jpg" alt="Corgi running in the beach" />
-     </div>
+      <h3>{{breed}}</h3>
+      {% for image in images %}
+      <div class="dogcontainer">
+      <img class="dogimage" src={{image}} alt="Corgi running in the beach" />
+      </div>
+      {% endfor %}
+      </div>
   </div>
 </body>
 </html>
